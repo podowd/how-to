@@ -51,7 +51,8 @@ curl -sS -i \
 claude mcp add --transport http snowflake \
 "https://<account>.snowflakecomputing.com/api/v2/databases/<database_name>/schemas/<schema_name>/mcp-servers/<mcp_server_name>" \
 --header "Authorization: Bearer <pat_token_secret>" \
---header "X-Snowflake-Authorization-Token-Type: PROGRAMMATIC_ACCESS_TOKEN"
+--header "X-Snowflake-Authorization-Token-Type: PROGRAMMATIC_ACCESS_TOKEN" \
+--scope user
 ```
 
 To test it worked, run the following:
