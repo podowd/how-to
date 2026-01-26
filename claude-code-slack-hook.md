@@ -80,7 +80,7 @@ Add to `~/.claude/settings.json`:
   "hooks": {
     "PermissionRequest": [
       {
-        "matcher": "AskUserQuestion",
+        "matcher": "*",
         "hooks": [{"type": "command", "command": "~/.claude/hooks/slack-notify.sh permission"}]
       }
     ]
@@ -88,7 +88,7 @@ Add to `~/.claude/settings.json`:
 }
 ```
 
-To also notify on all permission requests (Bash, Write, etc.), change matcher to `"*"`.
+The `"*"` matcher notifies on any permission request. The hook only fires when Claude is actually blocked waiting for permission - already-approved operations don't trigger notifications.
 
 ## Usage
 
@@ -111,3 +111,4 @@ alias claude-notify='SLACK_NOTIFY=1 claude'
 
 - Restart Claude Code after changing settings.json
 - Webhook URL should be kept private (don't commit to git)
+
